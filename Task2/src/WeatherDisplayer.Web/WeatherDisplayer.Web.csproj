@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>519d55d9-a9a6-4435-98d4-63256035e2dc</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherDisplayer.Application\WeatherDisplayer.Application.csproj" />
+    <ProjectReference Include="..\WeatherDisplayer.Domain\WeatherDisplayer.Domain.csproj" />
+    <ProjectReference Include="..\WeatherDisplayer.Infrastructure\WeatherDisplayer.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

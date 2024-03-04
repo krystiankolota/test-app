@@ -1,0 +1,19 @@
+FROM mcr.microsoft.com/azure-sql-edge:latest
+
+USER root
+ 
+RUN mkdir /var/opt/sqlserver
+ 
+RUN chown mssql /var/opt/sqlserver
+ 
+ENV MSSQL_BACKUP_DIR="/var/opt/mssql"
+ENV MSSQL_DATA_DIR="/var/opt/mssql/data"
+ENV MSSQL_LOG_DIR="/var/opt/mssql/log"
+
+EXPOSE 1433/tcp
+
+COPY docker/init-db.sh /
+COPY docker/init-db.sql /
+
+ENTRYPOINT [ "/bin/bash", "init-db.sh" ]
+CMD [ "/opt/mssql/bin/sqlservr" ]
