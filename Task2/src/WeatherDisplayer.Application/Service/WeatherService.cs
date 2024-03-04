@@ -29,7 +29,8 @@ public class WeatherService : IWeatherService
     {
         var result = await _weatherDataRepository.GetAsync(
             wd => wd.City == cityName,
-            o => o.OrderByDescending(w => w.LastUpdate));
+            o => o.OrderByDescending(w => w.LastUpdate),
+            true);
         return result;
     }
 
@@ -62,7 +63,8 @@ public class WeatherService : IWeatherService
 
         var data = await _weatherDataRepository.GetAsync(
             w => w.City == city && w.LastUpdate >= twoHoursAgo,
-            w => w.OrderBy(o => o.LastUpdate));
+            w => w.OrderBy(o => o.LastUpdate),
+            true);
 
         return data;
     }

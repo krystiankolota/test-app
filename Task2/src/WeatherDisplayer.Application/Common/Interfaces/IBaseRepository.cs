@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using WeatherDisplayer.Domain.Models;
 namespace WeatherDisplayer.Application.Common.Interfaces;
 
 public interface IBaseRepository<TEntity>
@@ -10,8 +11,7 @@ public interface IBaseRepository<TEntity>
     Task UpdateAsync(TEntity entity);
     Task DeleteAsync(TEntity entity);
     Task SaveAsync();
-    Task<IList<TEntity>> GetAsync(
-        Expression<Func<TEntity, bool>>? filter = null,
+    Task<IList<TEntity>> GetAsync(Func<WeatherData, bool> filter = null,
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
         bool asNoTracking = false);
     Task<TEntity?> GetFirstOrDefaultAsync(

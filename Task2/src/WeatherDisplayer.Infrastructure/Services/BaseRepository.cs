@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using WeatherDisplayer.Application.Common.Interfaces;
+using WeatherDisplayer.Domain.Models;
 using WeatherDisplayer.Infrastructure.Database;
 namespace WeatherDisplayer.Infrastructure.Services;
 
@@ -46,8 +47,7 @@ public class BaseRepository<TEntity>
         return Context.SaveChangesAsync();
     }
 
-    public async Task<IList<TEntity>> GetAsync(
-        Expression<Func<TEntity, bool>>? filter = null,
+    public async Task<IList<TEntity>> GetAsync(Func<WeatherData, bool> filter = null,
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
         bool asNoTracking = false)
     {
