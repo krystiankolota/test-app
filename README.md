@@ -56,3 +56,15 @@ Frontend: localhost:3000
 - Frontend is calling for new data every minute
 - Backend is calling for fresh data every minute (BackGround Service)
 - Trend graph is shown after a click on a dot on existing wind and temperature graphs
+
+- Avaliable settings:
+
+  ```
+  "WeatherApiClientSettings": {
+        "ApiKey": "",
+        "SupportedCities": [ "Paris", "Warsaw", "London", "Berlin", "Rome", "Madrid", "Moscow", "Amsterdam", "Vienna", "Brussels", "Stockholm" ]
+    },
+    "WeatherDatabase": {
+        "ConnectionString": ""
+    }
+  ```
